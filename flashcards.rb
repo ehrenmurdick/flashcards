@@ -44,11 +44,14 @@ end
 get '/study' do
   offset = (params[:offset] || 0).to_i
   flipped = params[:flipped] == "true"
+  last = params[:last] == "true"
 
   if flipped
     card = db.execute("select front from cards limit 1 offset ?", offset).first.first
-  else
+  elsif 
     card = db.execute("select back from cards limit 1 offset ?", offset).first.first
+  else   
+    card = db.execute("select back from cards order by front desc limit 1", offset)
   end
-  erb :study, locals: {card: card, flipped: flipped, offset: offset}
+  erb :study, locals: {card: card, flipped: flipped, offset: offset, last: last}
 end
