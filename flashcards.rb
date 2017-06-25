@@ -1,6 +1,8 @@
+require 'active_support/all'
+require 'rubygems'
 require 'sinatra'
 require "sqlite3"
-
+#require 'active_support/core_ext'
 
 db = SQLite3::Database.new "test.db"
 
@@ -44,14 +46,22 @@ end
 get '/study' do
   offset = (params[:offset] || 0).to_i
   flipped = params[:flipped] == "true"
-  last = params[:last] == "true"
+  last_card = params[:last_card] == "true"
 
   if flipped
-    card = db.execute("select front from cards limit 1 offset ?", offset).first.first
-  elsif 
-    card = db.execute("select back from cards limit 1 offset ?", offset).first.first
-  else   
-    card = db.execute("select back from cards order by front desc limit 1", offset)
+    card = db.execute("select front from cards limit 1 offset ?", offset)
+  else
+    card = db.execute("select back from cards limit 1 offset ?", offset)
   end
-  erb :study, locals: {card: card, flipped: flipped, offset: offset, last: last}
+
+  last_card = db.execute("select front from cards order by rowid asc limit 1 offset ?", offset)
+
+
+ 
+
+  erb :study, locals: {card: card, flipped: flipped, offset: offset, last_card: last_card}
+end
+
+get '/study/done' do 
+  'Done'
 end

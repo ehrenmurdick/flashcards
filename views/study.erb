@@ -3,6 +3,8 @@
 <p><%= card %></p>
 
 <p><a href="/study?flipped=<%= !flipped %>&offset=<%=offset%>">Flip</a></p>
-<p><a href="/study?flipped=<%= flipped %>&offset=<%=offset + 1 %>">Next</a></p>
+
+<p><a href= "/study?flipped=<%= flipped %>&offset=<%= offset + 1  unless card == last_card  %>"> Next</a></p>
+
 <p><a href="/study?flipped=<%= flipped %>&offset=<%= offset - 1%>">Previous</a></p>
 
