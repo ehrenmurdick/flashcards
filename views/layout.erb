@@ -10,10 +10,23 @@
 <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+	<style type="text/css">
+		a {
+			text-decoration: none;
+		}
+	</style>
 </head>
 
 <body>
-	<%= yield %>
+
+<div class="col-sm">
+  <div class="container">
+  	<div class="col-sm">
+  		<%= yield %>
+  	</div>
+  </div>
+</div>
+	
 
 </body>
 </html>

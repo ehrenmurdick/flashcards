@@ -2,9 +2,17 @@
 
 <ul>
   <% flashcards.each do |a|  %>
-  <li><%= a %></li>
+		<div class="row">
+		  <div class="card">
+		    <div class="section">
+		        <li><%= a %></li>
+		    </div>
+		  </div>
+		</div>
   <% end %>
 </ul>
 
+
  <p><a href="/new">New Form</a></p>
  <p><a href="/study">Study</a></p>
+
