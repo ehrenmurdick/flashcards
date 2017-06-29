@@ -1,10 +1,39 @@
+<style type="text/css">
+	
+	ul {
+		display:flex;
+		flex-direction: column; 
+		justify-content: flex-start;
+
+		border: 1px solid red;
+		padding: 0;
+		list-style: none; 
+		background-color: #e8e8e9;
+	}
+
+	ul li {
+		text-decoration: none;
+		background-color: #8cacea; 
+		width: 200px;
+		height: 200px;
+		margin: 8px;
+		padding: 4px;
+	}
+
+</style>
+
 <h1>Cards</h1>
+
+<div class="container">
 
 <ul>
   <% flashcards.each do |a|  %>
-  <li><%= a %></li>
+  <li class="flashcard"><%= a %></li>
   <% end %>
 </ul>
+
+
+</div>
 
  <p><a href="/new">New Form</a></p>
  <p><a href="/study">Study</a></p>
