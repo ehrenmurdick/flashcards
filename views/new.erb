@@ -1,13 +1,19 @@
-<form action="/create" method="post">
-  <label>
-    <input type="text" name="flashcard_front"/>
-    Front
-  </label>
+<% @title = "New Study Card" %>
 
-  <label>
-    <input type="text" name="flashcard_back"/>
-    Back
-  </label>
+<h1 class="index">Create a New Study Card</h1>
 
+
+<form action="/create" method="post" class="new_study_card">
+  <label>
+    Front <br />
+  </label>
+   <input type="text" name="flashcard_front"/> 
+   <br />
+   <br />
+   <label>
+    Back <br />
+  </label>
+ 	<input type="text" name="flashcard_back"/>
+ 	<br /><br />
   <button>Save</button>
 </form>

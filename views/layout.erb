@@ -2,18 +2,140 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Default Page Title</title>
+  <title><%= @title %></title>
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="favicon.ico">
-
+  <link rel="stylesheet" href="/styles.css">
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <style type="text/css">
+
+
+  body {
+  	 font-family: 'Oswald', sans-serif;
+  	 margin: 0;
+  	 padding: 0;
+  }
+	
+	ul.flashcards {
+		display:flex;
+		flex-direction: column; 
+		justify-content: space-between;
+
+		padding: 0;
+		list-style: none; 
+	}
+
+	ul.flashcards li {
+		text-decoration: none;
+		background-color: #8cacea; 
+		width: 180px;
+		height: 70px; 
+		margin: 8px;
+		padding: 4px;
+		border:1px solid gray;
+		-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+	}
+
+	h1 {
+		font-size:40px;
+		text-transform: capitalize;
+	}
+
+	.index {
+		text-align: center;
+	}
+
+ 
+.nav ul {
+  list-style: none;
+  background-color: #000;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+ 	background-color: #8cacea;
+}
+ 
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+  
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+  .new_study_card {
+  	padding:20px; 
+  	margin:20px;
+  }
+
+  .new_study_card input {
+  	padding: 20px;
+  	width:60%;
+  }
+
+  .new_study_card label {
+  	font-size: 30px;
+  	font-family: 'Oswald', sans-serif;
+  	padding-bottom: 20px;
+  }
+
+  button {
+  	padding:10px;
+  	font-size: 30px;
+  	font-family: 'Oswald', sans-serif;
+  }
+
+  .linkys {
+  	padding:10px;
+  	font-size: 15px;
+  	font-family: 'Oswald', sans-serif;
+  	text-decoration: none;
+  	font-size: 20px;
+  	margin-top: 20px;
+  }
+ 
+}
+
+</style>
 <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
 
-<body>
-	<%= yield %>
+<body class="container">
+<div class="nav">
+ 	<ul>
+    <li class="home"><a href="/">Home</a></li>
+    <li class="about"><a href="/new">New Card</a></li>
+    <li class="news"><a href="/study">Study</a></li>
+   </ul>
+  </div>
 
+	<%= yield %>
 </body>
 </html>

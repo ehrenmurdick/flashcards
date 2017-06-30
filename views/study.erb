@@ -1,11 +1,18 @@
-<h2>Front of firstcard</h2>
+<% @title = "Study" %>
 
-<p><%= card %></p>
+<h1 class="index">Flip the Cards</h1>
 
-<p><a href="/study?flipped=<%= !flipped %>&offset=<%=offset%>">Flip</a></p>
 
-<p><a href= "/study?flipped=<%= flipped %>&offset=<%= offset + 1  unless card == last_card  %>"> Next</a></p>
+	<h2>Index of Card: <% card.each do |c| %>
+		<%= c %>
+	<% end %>
+	</h2>
 
-<p><a href="/study?flipped=<%= flipped %>&offset=<%= offset - 1%>">Previous</a></p>
+	<p><%= card %></p>
 
-<p><a href="/">Home</a></p>
+	<a class="linkys" href="/study?flipped=<%= !flipped %>&offset=<%=offset%>">Flip</a> | 
+
+	<a class="linkys" href= "/study?flipped=<%= flipped %>&offset=<%= offset + 1  unless card == last_card  %>"> Next</a> | 
+
+	<a class="linkys" href="/study?flipped=<%= flipped %>&offset=<%= offset - 1%>">Previous</a>
+
